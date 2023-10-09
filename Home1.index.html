@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html, body {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+            width: 100%;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+
+        div {
+            height: 10%;
+            width: 9%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Function to change the background color of the div when hovered
+        function paint(event) {
+            var colors = ['blue', 'green', 'white', 'yellow'];
+            var randomIndex = Math.floor(Math.random() * colors.length);
+            var randomColor = colors[randomIndex];
+            event.target.style.backgroundColor = randomColor;
+        }
+
+        // Create 100 divs and append them to the body
+        for (var i = 0; i < 100; i++) {
+            var div = document.createElement('div');
+            div.onmouseover = paint; 
+            document.body.appendChild(div);
+        }
+    </script>
+</body>
+</html>
