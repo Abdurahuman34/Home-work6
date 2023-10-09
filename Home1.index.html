@@ -21,17 +21,31 @@
 <body>
     <script>
         // Function to change the background color of the div when hovered
-        function paint(event) {
+        function paint() {
             var colors = ['blue', 'green', 'white', 'yellow'];
-            var randomIndex = Math.floor(Math.random() * colors.length);
+            var randomIndex = Math.floor(Math.random() * 4);
             var randomColor = colors[randomIndex];
-            event.target.style.backgroundColor = randomColor;
+            this.style.backgroundColor = randomColor;
+
+            function pickColor(num)
+            {
+                if (num == 0){
+                    return "blue";
+                }else if(num == 1){
+                    return "green";
+                }else if(num == 2){
+                    return "white";
+                }else(num == 3)
+                {
+                     return "yellow";
+                }
+            }
         }
 
         // Create 100 divs and append them to the body
         for (var i = 0; i < 100; i++) {
             var div = document.createElement('div');
-            div.onmouseover = paint; 
+            div.addEventListener("mouseover", event); 
             document.body.appendChild(div);
         }
     </script>
